@@ -1,7 +1,7 @@
 package com.microservice.course.controller;
 
 import com.microservice.course.entities.Course;
-import com.microservice.course.interfaces.ICourseService;
+import com.microservice.course.service.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +27,11 @@ public class CourseController {
     @GetMapping("/search/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return ResponseEntity.ok(courseService.findById(id));
+    }
+
+    @GetMapping("/search/{idCourse}")
+    public ResponseEntity<?> findStudentsByIdCourse(@PathVariable Long idCourse) {
+     return ResponseEntity.ok(courseService.findStudentsByIdCourse(idCourse));
     }
 }
 
